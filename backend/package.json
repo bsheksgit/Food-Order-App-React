@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
   "scripts": {
     "start": "node app.js"
   },
