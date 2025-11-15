@@ -6,7 +6,8 @@ async function sendHttpRequest(url,config){
     const response = await fetch(url, config);
     const responseData = await response.json();
 
-    if(!responseData.ok){
+    if(!response.ok){
+        console.log(responseData);
         throw new Error(responseData.message || "Something went wrong. Failed to send request.");
     }
 
@@ -17,7 +18,7 @@ async function sendHttpRequest(url,config){
 export default function useHttp(url, config, initialData){
 
     const [isLoading, setIsLoading] = useState(false);
-    const [data, setData]=  useState({});
+    const [data, setData]=  useState(initialData);
     const [error, setError] = useState();
 
     function clearData()
