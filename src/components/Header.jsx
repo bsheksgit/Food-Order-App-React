@@ -9,6 +9,7 @@ export default function Header()
                 <img src= {logo} alt="Food App Logo"/>
                 <h1>Abhishek Food Order</h1>
             </div>
+            <button className="text-button">Cart (0)</button>
         </header>
         </>
     );
