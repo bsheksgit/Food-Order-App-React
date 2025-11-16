@@ -1,6 +1,8 @@
 import {currencyFormatter} from "../utils/formatting.js";
 
-export default function FoodCard({foodDetails}){
+
+export default function FoodCard({foodDetails, onClick}){
+
     return(
         <>
         <li className='meal-item'>
@@ -16,7 +18,7 @@ export default function FoodCard({foodDetails}){
             </p>
         </div>
         <p className="meal-item-actions">
-            <button className="button">Add to Cart</button>
+            <button className="button" onClick={onClick}>Add to Cart</button>
         </p>        
         </article>
         </li>
