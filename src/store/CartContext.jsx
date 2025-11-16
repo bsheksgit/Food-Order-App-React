@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext({
     cartItems:[],
-    cartStatus: Boolean,
+    cartStatus: false,
     addItemToCart: () => {},
     removeItemFromCart: () => {},
     setCartModalStatus: () => {},
