@@ -5,7 +5,7 @@ export const CartContext = createContext({
     cartStatus: false,
     addItemToCart: () => {},
     removeItemFromCart: () => {},
-    setCartModalStatus: () => {},
+    setCartStatus: () => {},
     goToCheckout: () => {}
 });
 
@@ -54,10 +54,6 @@ export default function CartContextProvider({children}){
     });
     }
 
-    function setCartModalStatus(status){
-        setCartStatus(status);
-    }
-
     function goToCheckout(){
 
     }
@@ -68,7 +64,7 @@ export default function CartContextProvider({children}){
         cartStatus,
         addItemToCart,
         removeItemFromCart,
-        setCartModalStatus,
+        setCartStatus,
         goToCheckout
     }
 

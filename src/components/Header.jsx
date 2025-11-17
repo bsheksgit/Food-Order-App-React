@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 export default function Header()
 {
-    const {cartItems, setCartModalStatus} = useContext(CartContext);
+    const {cartItems, setCartStatus} = useContext(CartContext);
     return (
         <>
         <header id="main-header">
@@ -14,7 +14,7 @@ export default function Header()
             </div>
             <button 
             className="text-button"
-            onClick={() => setCartModalStatus(true)}>
+            onClick={() => setCartStatus(true)}>
                 Cart ({cartItems.reduce((total, item) => total + item.quantity, 0)})
             </button>
         </header>
