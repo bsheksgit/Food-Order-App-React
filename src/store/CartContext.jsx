@@ -6,13 +6,16 @@ export const CartContext = createContext({
     addItemToCart: () => {},
     removeItemFromCart: () => {},
     setCartStatus: () => {},
-    goToCheckout: () => {}
+    goToCheckout: () => {},
+    CheckoutStatus: false,
+    setCheckoutStatus: () => {}
 });
 
 export default function CartContextProvider({children}){
 
     const [cartItems, setCartItems] = useState([]);
     const [cartStatus, setCartStatus] = useState(false);
+    const [CheckoutStatus, setCheckoutStatus] = useState(false);
 
     function addItemToCart(item) {
     setCartItems((prevItems) => {
@@ -55,7 +58,8 @@ export default function CartContextProvider({children}){
     }
 
     function goToCheckout(){
-
+        setCartStatus(false);
+        setCheckoutStatus(true);
     }
 
 
@@ -65,7 +69,9 @@ export default function CartContextProvider({children}){
         addItemToCart,
         removeItemFromCart,
         setCartStatus,
-        goToCheckout
+        goToCheckout,
+        CheckoutStatus,
+        setCheckoutStatus
     }
 
     return <CartContext.Provider value={ctxValue}>
