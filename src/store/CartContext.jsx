@@ -2,13 +2,15 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext({
     cartItems:[],
+    setCartItems: () => {},
     cartStatus: false,
     addItemToCart: () => {},
     removeItemFromCart: () => {},
     setCartStatus: () => {},
     goToCheckout: () => {},
     CheckoutStatus: false,
-    setCheckoutStatus: () => {}
+    setCheckoutStatus: () => {},
+    clearFormAndCart: () => {}
 });
 
 export default function CartContextProvider({children}){
@@ -62,16 +64,22 @@ export default function CartContextProvider({children}){
         setCheckoutStatus(true);
     }
 
+    function clearFormAndCart(){
+        setCheckoutStatus(false);
+        setCartItems([]);
+    }
 
     const ctxValue = {
         cartItems,
+        setCartItems,
         cartStatus,
         addItemToCart,
         removeItemFromCart,
         setCartStatus,
         goToCheckout,
         CheckoutStatus,
-        setCheckoutStatus
+        setCheckoutStatus,
+        clearFormAndCart
     }
 
     return <CartContext.Provider value={ctxValue}>
